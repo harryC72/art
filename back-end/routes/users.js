@@ -77,4 +77,27 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.patch('/update/:id', async (req, res) => {
+  try {
+    const updateObject = req.body; // {last_name : "smith", age: 44}
+    const updatedUser = await User.updateOne(
+      { _id: req.params.id },
+      { $set: updateObject }
+    );
+    console.log('updated', updatedUser);
+    res.status(200).send({ msg: `${req.params.id}-User has been updated` });
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find().exec();
+    res.status(200).send(users);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+});
+
 export default router;
