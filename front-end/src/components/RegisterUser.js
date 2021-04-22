@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FormContainer } from './FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,6 +38,9 @@ export const RegisterUser = ({ location, history }) => {
     }
   };
 
+  if (loading) <Loader />;
+  if (error) <Message variant='danger' children={error} />;
+  if (message) <Message variant='danger' children={message} />;
   return (
     <FormContainer>
       <UserForm

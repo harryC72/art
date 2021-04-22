@@ -3,23 +3,22 @@ import { Form, Button } from 'react-bootstrap';
 import { Message } from './Message';
 import { Loader } from './Loader';
 
-export const UserForm = (props) => {
-  const {
-    error,
-    loading,
-    message,
-    submitHandler,
-    firstName,
-    setFirstName,
-    lastName,
-    setLastName,
-    email,
-    setEmail,
-    password,
-    setPassword,
-    confirmPassword,
-    setConfirmPassword,
-  } = props;
+export const UserForm = ({
+  error,
+  loading,
+  message,
+  submitHandler,
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  confirmPassword,
+  setConfirmPassword,
+}) => {
   return (
     <>
       <h1>Sign Up</h1>
@@ -27,7 +26,7 @@ export const UserForm = (props) => {
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId='formFirstNamt'>
+        <Form.Group controlId='formFirstNames'>
           <Form.Label>First Name</Form.Label>
           <Form.Control
             type='text'
@@ -57,28 +56,24 @@ export const UserForm = (props) => {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        {password && (
-          <Form.Group controlId='formPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-        )}
-        {confirmPassword && (
-          <Form.Group controlId='formConfirmPassword'>
-            <Form.Label>Confirm password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Confirm password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </Form.Group>
-        )}
+        <Form.Group controlId='formPassword'>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group controlId='formConfirmPassword'>
+          <Form.Label>Confirm password</Form.Label>
+          <Form.Control
+            type='password'
+            placeholder='Confirm password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </Form.Group>
         <Button variant='primary' type='submit'>
           Submit
         </Button>
