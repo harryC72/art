@@ -5,7 +5,7 @@ import path from 'path';
 import cors from 'cors';
 
 import artPieceRoutes from './routes/artPieces';
-import articleRoutes from './routes/articles';
+import blogpostRoutes from './routes/blogposts';
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
 
@@ -34,7 +34,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use('/artpieces', artPieceRoutes);
-app.use('/articles', articleRoutes);
+app.use('/blogposts', blogpostRoutes);
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 

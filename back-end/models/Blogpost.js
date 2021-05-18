@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 var Schema = mongoose.Schema;
 
-let articleSchema = new Schema({
+let blogpostSchema = new Schema({
   title: String,
   ingress: String,
   text: String,
   date: { type: Date, default: Date.now },
 });
 
-const article = mongoose.model('Article', articleSchema);
+const blogpost = mongoose.model('Blogpost', blogpostSchema);
 
-export default article;
+export default blogpost;

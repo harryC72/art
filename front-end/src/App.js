@@ -2,7 +2,7 @@ import './App.css';
 import { Navigation } from './components/Navigation';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ArtPiecesContainer } from './components/ArtPiecesContainer';
-import { Home } from './components/Home';
+import { Blog } from './components/Blog';
 import { RegisterUser } from './components/RegisterUser';
 import { Login } from './components/Login';
 import { ArtUpload } from './components/ArtUpload';
@@ -19,7 +19,7 @@ function App() {
       <Route path='/users' component={UserTable} />
       <Route path='/user/:id' component={UpdateUser} />
       <Route path='/login' component={Login} />
-      <Route exact path='/' component={Home} />
+      <Route exact path='/' component={Blog} />
     </Router>
   );
 }

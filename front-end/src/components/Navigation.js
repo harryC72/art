@@ -20,7 +20,7 @@ export const Navigation = () => {
               active={brandClicked}
               onClick={() => setBrandClicked(true)}
             >
-              Home
+              Blog
             </Nav.Link>
             <Nav.Link
               as={Link}

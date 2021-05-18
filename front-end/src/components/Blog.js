@@ -1,17 +1,12 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 
-const homeStyle = {
-  width: '90%',
-  padding: '10px',
-  boxSizing: 'border-box',
-  display: 'flex',
-};
-
-export const Home = () => {
+export const Blog = () => {
   return (
-    <Container>
-      <Card style={homeStyle}>
+    <Container
+      style={{ display: 'flex', justifyContent: 'center', margin: '50px' }}
+    >
+      <Card style={{ width: '18rem' }}>
         <Card.Img variant='top' src='holder.js/100px180' />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>

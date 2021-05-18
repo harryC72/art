@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import Article from '../models/Article';
+import Blogpost from '../models/Blogpost';
 
 const router = Router();
 
 router.post('/', (req, res) => {
-  const post = new Article({
+  const post = new Blogpost({
     title: req.body.title,
     ingress: req.body.ingress,
     text: req.body.text,
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log('REQ', req.body, req.params);
 
-  Article.updateOne(
+  Blogpost.updateOne(
     { _id: req.params.id }, // Filter
     {
       $set: {
@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Article.findByIdAndDelete({
+  Blogpost.findByIdAndDelete({
     _id: req.params.id,
     function(err, post) {
       if (err) return next(err);
